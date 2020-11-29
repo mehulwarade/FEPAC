@@ -41,51 +41,6 @@
             "file_path": "algorithms/matrix_multiplication/matrixmultiplication.py",
             "__comment1":"Put is_output true if you have any SINGLE line output from the code",
             "is_output":true
-        },
-        "kmeans_c": {
-            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
-            "language": "C",
-            "dependency": "GCC openMPI",
-            "command": "./algorithms/kmeans_c/kmeans_c.exe",
-            "file_path": "algorithms/kmeans_c/kmeans_c.exe",
-            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
-            "is_output":true
-        },
-        "OpenCV": {
-            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
-            "language": "python3",
-            "dependency": "mpi4py numpy openMPI",
-            "command": "python3 algorithms/python_opencv/opencv.py",
-            "file_path": "algorithms/python_opencv/opencv.py",
-            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
-            "is_output":true
-        },
-        "opencv_filter": {
-            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
-            "language": "python3",
-            "dependency": "mpi4py numpy openMPI",
-            "command": "python3 algorithms/opencv_filter/opencv_filter.py",
-            "file_path": "algorithms/opencv_filter/opencv_filter.py",
-            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
-            "is_output":true
-        },
-        "opencv_hash": {
-            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
-            "language": "python3",
-            "dependency": "mpi4py numpy openMPI",
-            "command": "python3 algorithms/opencv_hash/cv_hash.py",
-            "file_path": "algorithms/opencv_hash/cv_hash.py",
-            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
-            "is_output":true
-        },
-        "kmeans_python": {
-            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
-            "language": "python3",
-            "dependency": "mpi4py numpy openMPI",
-            "command": "python3 algorithms/kmeans/paralKMS.py",
-            "file_path": "algorithms/kmeans/paralKMS.py",
-            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
-            "is_output":true
         }
     }
 }
