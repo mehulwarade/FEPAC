@@ -1,1 +1,0 @@
-#Not using this code as this is mainly using OpenMP and that is only for single node iwth multiple threads.
