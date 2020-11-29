@@ -8,7 +8,7 @@ from time import time
 import os
 thisdirname = os.path.dirname(os.path.abspath(__file__))
 # size = int(sys.argv[1])
-size = 240
+size = 36
 TaskMaster = 0
 
 #print ("Initialising variables.\n")

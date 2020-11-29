@@ -9,7 +9,7 @@ const figlet = require('figlet');
 const functions = require('./lib/methods');
 const inquirer = require('./lib/inquirer');
 const mysql = require('./lib/mysql');
-const telnet = require('./lib/telnet');
+const snmp = require('./lib/snmp');
 const running_algo = require('./lib/run_algo');
 const graph = require('./lib/graph');
 
@@ -64,8 +64,8 @@ const run = async () => {
                     run();
                 });
         }
-        else if (ask_main.res == 'Test Telnet connection') {
-                telnet.telnet_connect((res) => {
+        else if (ask_main.res == 'Test SNMP connection') {
+                snmp.snmp_connect((res) => {
                     run();
                 });
         }
@@ -90,15 +90,15 @@ const fepac = async () => {
 
     const ask_fepac = await inquirer.ask_fepac();
             
-    if (ask_fepac.res == 'MySQL <-> Telnet connection (Power)') {
-        await mysql.telnet_get_data('test',(res) => {
+    if (ask_fepac.res == 'MySQL <-> snmp connection (Power)') {
+        await mysql.snmp('test',(res) => {
             fepac()
         });
         console.log(chalk.blue(`TABLE [test]: Data being inserted.`))
         fepac()
     }
     else if (ask_fepac.res == 'Stop mysql insert') {
-        await telnet.stop_telnet();
+        await snmp.stop_snmp();
         console.log(chalk.blue(`Data insertion halted. Exiting!`))
         process.exit();
     }
@@ -154,7 +154,7 @@ const algo_run = async () => {
     }
     else{
         try {
-            await mysql.telnet_get_data(ask_run_algo.res,(res) => {
+            await mysql.snmp(ask_run_algo.res,(res) => {
             });
             console.log(chalk.blue(`TABLE [${ask_run_algo.res}]: Data being inserted.`))
 

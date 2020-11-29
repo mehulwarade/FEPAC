@@ -16,7 +16,7 @@
         "uname": "mwarade",
         "api": "0KshuW2zDgDRh6Nm3mlp"
     },
-    "switch_telnet": {
+    "switch": {
         "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
         "IP": "192.168.50.150",
         "port": 60000,
