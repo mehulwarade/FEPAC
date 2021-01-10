@@ -1,0 +1,46 @@
+{
+    "__comment": "Configuration file for FEPAC",
+    "app": {
+        "__comment1": "NodeJS code",
+        "port": 8000,
+        "master_node_ip": "192.168.50.220",
+        "folder_location_on_nodes": "~/Honours_Framework",
+        "max_nodes": 6,
+        "max_threads": 4,
+        "__comment2": "Following is used for testing purposes. Fill this to overwrite the data file usage. Default: Name of algorithm.",
+        "data_file": null,
+        "start_node": null,
+        "start_thread": null
+    },
+    "plotly": {
+        "uname": "mwarade",
+        "api": "0KshuW2zDgDRh6Nm3mlp"
+    },
+    "switch": {
+        "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
+        "IP": "192.168.1.99",
+        "port": 60000,
+        "login": "admin",
+        "password": "password",
+        "interval_to_call": 1000
+    },
+    "db": {
+        "__comment": "Local mysql database credentials",
+        "host": "localhost",
+        "user": "root",
+        "password": "qazwsxedc",
+        "db_name": "mytestdb"
+    },
+    "algorithm": {
+        "hostfile_folder": "algorithms/hostfile",
+        "matrix_multiplication": {
+            "__comment": "All paths should be relative. Create a data file by algorithm name at /logs/*.json",
+            "language": "python3",
+            "dependency": "mpi4py numpy openMPI",
+            "command": "python3 algorithms/matrix_multiplication/matrixmultiplication.py",
+            "file_path": "algorithms/matrix_multiplication/matrixmultiplication.py",
+            "__comment1":"Put is_output true if you have any SINGLE line output from the code",
+            "is_output":true
+        }
+    }
+}
