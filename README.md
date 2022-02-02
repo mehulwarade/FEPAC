@@ -2,6 +2,8 @@
 
 This code includes the FEPAC based on 3 switches used during my PHD.
 
+Edited heavily.
+
 ## Installation
 
 Installing dependencies for the nodeJS.
