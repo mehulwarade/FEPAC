@@ -36,7 +36,6 @@
     "inquirer": "^7.3.3",
     "mysql": "^2.18.1",
     "net-snmp": "^2.9.8",
-    "nodemon": "^2.0.4",
-    "plotly": "^1.0.6"
+    "nodemon": "^2.0.4"
   }
 }

@@ -2,7 +2,7 @@
 
 This code includes the FEPAC based on 3 switches used during my PHD.
 
-Edited heavily.
+This one just gets energy data from the switches and saves it into the local mysql database.
 
 ## Installation
 
