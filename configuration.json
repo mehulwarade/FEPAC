@@ -37,7 +37,7 @@
         "host": "localhost",
         "user": "root",
         "password": "z",
-        "db_name": "phd",
-		"table_name": "test"
+        "db_name": "scheduler_phd",
+		"table_name": "4n_montage_dot5d"
     }
 }
