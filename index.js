@@ -16,7 +16,7 @@ clear();
 
 console.log(
     chalk.yellow(
-        figlet.textSync('FEPAC', { horizontalLayout: 'full' })
+        figlet.textSync('FEPAC 2.0', { horizontalLayout: 'full' })
     )
 );
 
