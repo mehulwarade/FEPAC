@@ -32,12 +32,16 @@
         "password": "password",
         "interval_to_call": 1000
     },
+    "athomIP": {
+        "master": "192.168.1.100",
+        "slave1": "192.168.1.104"
+    },
     "db": {
-        "__comment": "Local mysql database credentials",
+        "__comment": "Local mysql database credentials", 
         "host": "localhost",
         "user": "root",
         "password": "z",
-        "db_name": "scheduler_phd",
+        "db_name": "docker",
 		"table_name": "test"
     }
 }
