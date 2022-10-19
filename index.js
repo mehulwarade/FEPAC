@@ -49,13 +49,16 @@ const run = async () => {
       });
       console.log(chalk.blue(`TABLE [test]: Data being inserted.`));
       run();
-    } else if (ask_main.res == "Stop mysql insert") {
-      await snmp.stop_snmp();
-      console.log(chalk.blue(`Data insertion halted. Exiting!`));
-      process.exit();
+    } else if (ask_main.res == "Test Athom Plug Connections") {
+      await athom.testConnection((res) => {
+        res ? run() : process.exit;
+      });
     } else if (ask_main.res == "Athom Plugs mysql insert") {
-      await athom;
-      snmp.stop_snmp();
+      await mysql.athomMySQL((res) => {
+        run();
+      });
+    } else if (ask_main.res == "Stop mysql insert") {
+      await mysql.end();
       console.log(chalk.blue(`Data insertion halted. Exiting!`));
       process.exit();
     } else if (ask_main.res == "Exit") {

@@ -30,12 +30,14 @@
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
+    "curl": "^0.1.4",
     "edit-json-file": "^1.4.1",
     "enquirer": "^2.3.6",
     "figlet": "^1.5.0",
     "inquirer": "^7.3.3",
     "mysql": "^2.18.1",
     "net-snmp": "^2.9.8",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "ping": "^0.4.2"
   }
 }
