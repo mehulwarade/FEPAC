@@ -45,6 +45,6 @@
     "user": "root",
     "password": "z",
     "db_name": "docker",
-    "table_name": "test1"
+    "table_name": "withwithoutNginxContainer"
   }
 }
