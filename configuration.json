@@ -36,8 +36,8 @@
     "masterIP": "192.168.1.100",
     "slave1IP": "192.168.1.104",
     "name-NotUsed": ["masterIP", "slave1IP"],
-    "allIP": ["192.168.1.100", "192.168.1.104"],
-    "interval_to_call": 1000
+    "allIP": ["192.168.1.100", "192.168.1.104", "192.168.1.122"],
+    "interval_to_call": 500
   },
   "db": {
     "__comment": "Local mysql database credentials",
@@ -45,6 +45,6 @@
     "user": "root",
     "password": "z",
     "db_name": "docker",
-    "table_name": "withwithoutNginxContainer"
+    "table_name": "test1"
   }
 }
