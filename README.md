@@ -1,13 +1,16 @@
-# FEPAC-PHD
+# FEPAC 2.0
 
-This code includes the FEPAC based on 3 switches used during my PHD.
+Source code for FEPAC 2.0 (Framework for Evaluation of Parallel Algorithms on Clusters).
 
-This one just gets energy data from the switches and saves it into the local mysql database.
+Version 2.0 includes dynamic webpage for managing athom smart switches and collecting/ storing power data into the local mysql database.
+
+This is developed as a part of my PhD research.
 
 ## Installation
+`*** Tested on Debian based Linux system ***`
+`*** Node Version: v18.12.1 ***`
 
 Installing dependencies for the nodeJS.
-Tested connection on 'NETGEAR ProSAFE GS110TP switches'
 
 ```
 npm install
@@ -17,19 +20,10 @@ npm install
 
 Need MySQL server installed on local machine
 
-# Running from scratch (Debian 10):
-### RPi netboot. (location: /nfs/client/home/pi/** <= so that its accessible to other nodes =>)
-`sudo apt-get update`
-
-`sudo apt install npm`
-
-<!-- Only if needed -->
-`sudo apt install nodejs`
-    `=> node -v`
-
-`sudo apt install mariadb-server`
-    `=> sudo mysql_secure_installation`
-
+```
+sudo apt install mariadb-server
+```
+`=> sudo mysql_secure_installation`
 
 # References:
 
@@ -37,5 +31,3 @@ Need MySQL server installed on local machine
 * MySQL Cheat Sheet: https://gist.github.com/hofmannsven/9164408
 * Max file watch error (in nodemon or VSCode): https://stackoverflow.com/a/34664097 and add ignore params to `nodemonConfig` in package.json
 * Markdown basics: https://wordpress.com/support/markdown-quick-reference/
-* 
-
