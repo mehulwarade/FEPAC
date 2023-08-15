@@ -1,31 +1,13 @@
 {
-  "name": "honours_framework",
+  "name": "FEPAC 2.0",
   "version": "1.0.0",
-  "description": "Framework for evaluation of parallel algorithms on clusters (FEPAC)",
+  "description": "Framework for evaluation of parallel algorithms on clusters (FEPAC 2.0)",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "start": "nodemon index.js"
   },
-  "nodemonConfig": {
-    "__comment": "Use to ignore monitoring of certain files: https://stackoverflow.com/a/50303181",
-    "ignore": [
-      "logs/*.json",
-      "algorithms/opencv_hash/images_hash/*"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mehulwarade/Honours_Framework.git"
-  },
   "author": "Mehul Warade",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mehulwarade/Honours_Framework/issues"
-  },
-  "homepage": "https://github.com/mehulwarade/Honours_Framework#readme",
   "dependencies": {
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
