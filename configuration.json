@@ -1,0 +1,50 @@
+{
+  "__comment": "Configuration file for FEPAC",
+  "app": {
+    "__comment1": "NodeJS code",
+    "port": 8000,
+    "__comment2": "Following is used for testing purposes. Fill this to overwrite the data file usage. Default: Name of algorithm.",
+    "data_file": null,
+    "start_node": null,
+    "start_thread": null
+  },
+  "switch1": {
+    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
+    "IP": "192.168.5.150",
+    "port": 60000,
+    "login": "admin",
+    "password": "password",
+    "interval_to_call": 1000
+  },
+  "switch2": {
+    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
+    "IP": "192.168.5.151",
+    "port": 60000,
+    "login": "admin",
+    "password": "password",
+    "interval_to_call": 1000
+  },
+  "switch3": {
+    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
+    "IP": "192.168.5.152",
+    "port": 60000,
+    "login": "admin",
+    "password": "password",
+    "interval_to_call": 1000
+  },
+  "smartPlug": {
+    "masterIP": "192.168.1.100",
+    "slave1IP": "192.168.1.104",
+    "name-NotUsed": ["masterIP", "node1"],
+    "allIP": ["192.168.1.100", "192.168.1.104"],
+    "interval_to_call": 500
+  },
+  "db": {
+    "__comment": "Local mysql database credentials",
+    "host": "localhost",
+    "user": "root",
+    "password": "z",
+    "db_name": "docker",
+    "table_name": "nginx_differentRed_newFixed"
+  }
+}
