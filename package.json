@@ -4,7 +4,8 @@
   "description": "Framework for evaluation of parallel algorithms on clusters (FEPAC 2.0)",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "web": "nodemon web/web.js"
   },
   "author": "Mehul Warade",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "curl": "^0.1.4",
     "edit-json-file": "^1.4.1",
     "enquirer": "^2.3.6",
+    "express": "^4.18.2",
     "figlet": "^1.5.0",
     "inquirer": "^7.3.3",
     "mysql": "^2.18.1",

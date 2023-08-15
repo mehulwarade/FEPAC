@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://codepen.io/abhay-111/pen/JjmYzGK -->
+
+<head>
+	<meta name="FEPAC 2.0 Plug Management"
+		content="Source code for FEPAC 2.0 (Framework for Evaluation of Parallel Algorithms on Clusters)" />
+	<meta charset="utf-8">
+	<title>Plug Management</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Mehul Warade">
+</head>
+<style>
+	.gauge-row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+
+	.gauge-container {
+		display: flex;
+		align-items: flex-end;
+		position: relative;
+	}
+
+	.square {
+		width: 10px;
+		height: 10px;
+		margin: 0 1px;
+		transition: background-color 0.3s;
+		border-radius: 4px;
+	}
+
+	.gauge-text {
+		font-size: 18px;
+		font-weight: bold;
+		margin-left: 10px;
+		margin-right: 15px;
+	}
+
+	.description {
+		font-size: 18px;
+		font-weight: bold;
+		margin-right: 15px;
+	}
+</style>
+
+<body>
+	<div class="gauge-rows" id="gaugeRows">
+		<!-- Gauge rows will be added here using JavaScript -->
+	</div>
+
+	<script>
+		const gaugeRows = document.getElementById('gaugeRows');
+		const powerEndpoint = '/integers/?num=1&min=1&max=100&format=plain&col=1&base=10';
+		const turnOnEndpoint = 'turnon';
+		const turnOffEndpoint = 'turnoff';
+		const interval = 2000;
+
+		const elements = [
+			{ description: 'Plug 1', baseUrl: 'https://www.random.org/' },
+			{ description: 'Plug 2', baseUrl: 'https://www.random.org/' },
+			{ description: 'Plug 3', baseUrl: 'https://www.random.org/' },
+			// Add more elements here...
+		];
+
+		function fetchApiValue(apiUrl, endpoint) {
+			return fetch(apiUrl + endpoint)
+				.then(response => response.text())
+				.catch(error => {
+					console.error('Error fetching data:', error);
+					return 'N/A'; // Return a default value in case of an error
+				});
+		}
+
+		function createGaugeRow(element) {
+			const gaugeRow = document.createElement('div');
+			gaugeRow.classList.add('gauge-row');
+			gaugeRow.dataset.description = element.description;
+
+			const descriptionElement = document.createElement('p');
+			descriptionElement.classList.add('description');
+			descriptionElement.textContent = element.description;
+
+			const gaugeContainer = document.createElement('div');
+			gaugeContainer.classList.add('gauge-container');
+
+			for (let i = 0; i < 100; i++) {
+				const square = document.createElement('div');
+				square.classList.add('square');
+				gaugeContainer.appendChild(square);
+			}
+
+			const gaugeText = document.createElement('p');
+			gaugeText.classList.add('gauge-text');
+			gaugeText.textContent = `Loading...`;
+
+			const turnOnButton = document.createElement('button');
+			turnOnButton.textContent = 'Turn On';
+			turnOnButton.addEventListener('click', async () => {
+				await fetchApiValue(element.baseUrl, turnOnEndpoint);
+			});
+
+			const turnOffButton = document.createElement('button');
+			turnOffButton.textContent = 'Turn Off';
+			turnOffButton.addEventListener('click', async () => {
+				await fetchApiValue(element.baseUrl, turnOffEndpoint);
+			});
+
+			const buttonContainer = document.createElement('div');
+			buttonContainer.appendChild(turnOnButton);
+			buttonContainer.appendChild(turnOffButton);
+
+			gaugeRow.appendChild(descriptionElement);
+			gaugeRow.appendChild(gaugeContainer);
+			gaugeRow.appendChild(gaugeText);
+			gaugeRow.appendChild(buttonContainer);
+
+			gaugeRows.appendChild(gaugeRow);
+
+			setInterval(async () => {
+				const newValue = await fetchApiValue(element.baseUrl, powerEndpoint);
+				const numericValue = parseFloat(newValue); // Parse plain text value to a number
+				if (!isNaN(numericValue)) {
+					updateGauge(numericValue, gaugeContainer);
+					gaugeText.textContent = `${numericValue} W`;
+				} else {
+					gaugeText.textContent = 'N/A';
+				}
+			}, interval);
+		}
+
+		function updateGauge(value, gaugeContainer) {
+			const squares = gaugeContainer.querySelectorAll('.square');
+
+			squares.forEach((square, index) => {
+				const color = index < value ? (value > 66 ? '#B81D13' : value < 33 ? '#008450' : '#EFB700') : '#ccc';
+				square.style.backgroundColor = color;
+			});
+		}
+
+		elements.forEach(element => {
+			createGaugeRow(element);
+		});
+	</script>
+</body>
+
+</html>
