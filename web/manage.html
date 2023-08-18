@@ -52,21 +52,44 @@
 
 	<script>
 		const gaugeRows = document.getElementById('gaugeRows');
-		const powerEndpoint = '/integers/?num=1&min=1&max=100&format=plain&col=1&base=10';
+		const powerEndpoint = '/sensor/athom_smart_plug_v2_power';
 		const turnOnEndpoint = 'turnon';
 		const turnOffEndpoint = 'turnoff';
-		const interval = 2000;
-
+		const interval = 500;
 		const elements = [
-			{ description: 'Plug 1', baseUrl: 'https://www.random.org/' },
-			{ description: 'Plug 2', baseUrl: 'https://www.random.org/' },
-			{ description: 'Plug 3', baseUrl: 'https://www.random.org/' },
+			{ description: 'Switch Plug 1', baseUrl: 'http://switchap' },
+			{ description: 'server', baseUrl: 'http://serverap' },
+			{ description: 'master', baseUrl: 'http://masterap' },
+			{ description: 'T1', baseUrl: 'http://t1ap' },
+			{ description: 'T2', baseUrl: 'http://t2ap' },
+			{ description: '1', baseUrl: 'http://alphaap' },
+			{ description: '2', baseUrl: 'http://bravoap' },
+			{ description: '3', baseUrl: 'http://charlieap' },
+			{ description: '4', baseUrl: 'http://deltaap' },
+			{ description: '5', baseUrl: 'http://echoap' },
+			{ description: '6', baseUrl: 'http://foxtrotap' },
+			{ description: '7', baseUrl: 'http://golfap' },
+			{ description: '8', baseUrl: 'http://hotelap' },
+			{ description: '9', baseUrl: 'http://indiaap' },
+			{ description: '10', baseUrl: 'http://julietap' },
+			{ description: '11', baseUrl: 'http://kiloap' },
+			{ description: '12', baseUrl: 'http://limaap' },
+			{ description: '13', baseUrl: 'http://mikeap' },
+			{ description: '14', baseUrl: 'http://novemberap' },
+			{ description: '15', baseUrl: 'http://oscarap' },
+			{ description: '16 Papa i5', baseUrl: 'http://papaap' },
+			{ description: '17', baseUrl: 'http://quebecap' },
+			{ description: '18', baseUrl: 'http://romeoap' },
+			{ description: '19 Sierra i5', baseUrl: 'http://sierraap' },
+			{ description: '20', baseUrl: 'http://tangoap' },
+
 			// Add more elements here...
 		];
 
 		function fetchApiValue(apiUrl, endpoint) {
 			return fetch(apiUrl + endpoint)
-				.then(response => response.text())
+				.then(response => response.json())
+				.then(data => data.value)
 				.catch(error => {
 					console.error('Error fetching data:', error);
 					return 'N/A'; // Return a default value in case of an error

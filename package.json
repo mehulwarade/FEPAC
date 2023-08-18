@@ -1,5 +1,5 @@
 {
-  "name": "FEPAC 2.0",
+  "name": "FEPAC",
   "version": "1.0.0",
   "description": "Framework for evaluation of parallel algorithms on clusters (FEPAC 2.0)",
   "main": "index.js",
