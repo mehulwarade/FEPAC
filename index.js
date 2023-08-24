@@ -8,7 +8,6 @@ const figlet = require("figlet");
 const functions = require("./lib/methods");
 const inquirer = require("./lib/inquirer");
 const mysql = require("./lib/mysql");
-const snmp = require("./lib/snmp");
 const athom = require("./lib/athomPlugs");
 
 var config_path =
