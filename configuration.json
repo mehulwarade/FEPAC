@@ -1,36 +1,8 @@
 {
-  "__comment": "Configuration file for FEPAC",
+  "__comment": "Configuration file for FEPAC 2.0",
   "app": {
     "__comment1": "NodeJS code",
-    "port": 8000,
-    "__comment2": "Following is used for testing purposes. Fill this to overwrite the data file usage. Default: Name of algorithm.",
-    "data_file": null,
-    "start_node": null,
-    "start_thread": null
-  },
-  "switch1": {
-    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
-    "IP": "192.168.5.150",
-    "port": 60000,
-    "login": "admin",
-    "password": "password",
-    "interval_to_call": 1000
-  },
-  "switch2": {
-    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
-    "IP": "192.168.5.151",
-    "port": 60000,
-    "login": "admin",
-    "password": "password",
-    "interval_to_call": 1000
-  },
-  "switch3": {
-    "__comment": "Telent credentials for connecting to Netgear Switch GS110TP",
-    "IP": "192.168.5.152",
-    "port": 60000,
-    "login": "admin",
-    "password": "password",
-    "interval_to_call": 1000
+    "port": 8000
   },
   "smartPlug": {
     "masterIP": "192.168.1.100",

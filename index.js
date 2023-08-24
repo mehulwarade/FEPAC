@@ -14,6 +14,8 @@ const athom = require("./lib/athomPlugs");
 var config_path =
   functions.getConfigPath(); /* Always put this after declaring functions */
 
+var global_env;
+
 clear();
 
 console.log(
@@ -23,7 +25,7 @@ console.log(
 /* Checking for configuration file */
 
 if (functions.directoryExists(config_path)) {
-  var global_env = require(config_path);
+  global_env = require(config_path);
 } else {
   console.log(
     chalk.red("Configuration file does not exists at " + config_path)
@@ -39,17 +41,7 @@ const run = async () => {
       mysql.db_connect((res) => {
         run();
       });
-    } else if (ask_main.res == "Test SNMP connection") {
-      snmp.snmp_connect((res) => {
-        run();
-      });
-    } else if (ask_main.res == "MySQL/SNMP connection") {
-      await mysql.snmp((res) => {
-        run();
-      });
-      console.log(chalk.blue(`TABLE [test]: Data being inserted.`));
-      run();
-    } else if (ask_main.res == "Test Athom Plug Connections") {
+    }  else if (ask_main.res == "Test Athom Plug Connections") {
       await athom.testConnection((res) => {
         res ? run() : process.exit;
       });
@@ -62,7 +54,7 @@ const run = async () => {
       console.log(chalk.blue(`Data insertion halted. Exiting!`));
       process.exit();
     } else if (ask_main.res == "Exit") {
-      console.log(chalk.green("Thank you for using FEPAC"));
+      console.log(chalk.green("Thank you for using FEPAC 2.0"));
       process.exit();
     }
   } catch (err) {
