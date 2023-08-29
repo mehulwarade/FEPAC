@@ -57,7 +57,7 @@
 		const turnOffEndpoint = '/switch/athom_smart_plug_v2/turn_off';
 		const interval = 500;
 		const elements = [
-			{ description: 'Switch Plug 1', baseUrl: 'http://192.168.5.105', namedUrl: 'http://switchap' },
+			{ description: 'Switch', baseUrl: 'http://192.168.5.105', namedUrl: 'http://switchap' },
 			{ description: 'server', baseUrl: 'http://192.168.5.102', namedUrl: 'http://serverap' },
 			{ description: 'master', baseUrl: 'http://192.168.5.110', namedUrl: 'http://masterap' },
 			{ description: 'T1', baseUrl: 'http://192.168.5.9', namedUrl: 'http://t1ap' },
@@ -77,10 +77,10 @@
 			{ description: '13', baseUrl: 'http://192.168.5.163', namedUrl: 'http://mikeap' },
 			{ description: '14', baseUrl: 'http://192.168.5.164', namedUrl: 'http://novemberap' },
 			{ description: '15', baseUrl: 'http://192.168.5.165', namedUrl: 'http://oscarap' },
-			{ description: '16 Papa i5', baseUrl: 'http://192.68.5.166', namedUrl: 'http://papaap' },
+			{ description: '16', baseUrl: 'http://192.168.5.166', namedUrl: 'http://papaap' },
 			{ description: '17', baseUrl: 'http://192.168.5.167', namedUrl: 'http://quebecap' },
 			{ description: '18', baseUrl: 'http://192.168.5.168', namedUrl: 'http://romeoap' },
-			{ description: '19 Sierra i5', baseUrl: 'http://192.168.5.169', namedUrl: 'http://sierraap' },
+			{ description: '19', baseUrl: 'http://192.168.5.169', namedUrl: 'http://sierraap' },
 			{ description: '20', baseUrl: 'http://192.168.5.170', namedr2: 'http://tangoap' },
 			// Add more elements here..
 		]
@@ -130,6 +130,12 @@
 			gaugeText.classList.add('gauge-text');
 			gaugeText.textContent = `Loading...`;
 
+			const visitButton = document.createElement('button');
+			visitButton.textContent = 'Visit';
+			visitButton.addEventListener('click', async () => {
+				window.open(element.namedUrl, '_blank');
+			});
+
 			const turnOnButton = document.createElement('button');
 			turnOnButton.textContent = 'Turn On';
 			turnOnButton.addEventListener('click', async () => {
@@ -143,6 +149,7 @@
 			});
 
 			const buttonContainer = document.createElement('div');
+			buttonContainer.appendChild(visitButton);
 			buttonContainer.appendChild(turnOnButton);
 			buttonContainer.appendChild(turnOffButton);
 
@@ -158,7 +165,7 @@
 				const numericValue = parseFloat(newValue); // Parse plain text value to a number
 				if (!isNaN(numericValue)) {
 					updateGauge(numericValue, gaugeContainer);
-					gaugeText.textContent = `${numericValue} W`;
+					gaugeText.textContent = `${parseFloat(numericValue).toFixed(2)} W`;
 				} else {
 					gaugeText.textContent = 'N/A';
 				}
