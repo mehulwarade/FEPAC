@@ -53,8 +53,8 @@
 	<script>
 		const gaugeRows = document.getElementById('gaugeRows');
 		const powerEndpoint = '/sensor/athom_smart_plug_v2_power';
-		const turnOnEndpoint = 'turnon';
-		const turnOffEndpoint = 'turnoff';
+		const turnOnEndpoint = '/turnon';
+		const turnOffEndpoint = '/turnoff';
 		const interval = 500;
 		const elements = [
 			{ description: 'Switch Plug 1', baseUrl: 'http://switchap' },
@@ -96,6 +96,20 @@
 				});
 		}
 
+		function postData(apiUrl, endpoint) {
+			return fetch(apiUrl + endpoint, {
+				method: 'post',
+				headers: {
+					'Content-Type': 'text/plain'
+				},
+				body: true
+			})
+				.then(response => response.text())
+				.then(body => {
+					console.log(body)
+				})
+		}
+
 		function createGaugeRow(element) {
 			const gaugeRow = document.createElement('div');
 			gaugeRow.classList.add('gauge-row');
@@ -121,13 +135,13 @@
 			const turnOnButton = document.createElement('button');
 			turnOnButton.textContent = 'Turn On';
 			turnOnButton.addEventListener('click', async () => {
-				await fetchApiValue(element.baseUrl, turnOnEndpoint);
+				await postData(element.baseUrl, turnOnEndpoint);
 			});
 
 			const turnOffButton = document.createElement('button');
 			turnOffButton.textContent = 'Turn Off';
 			turnOffButton.addEventListener('click', async () => {
-				await fetchApiValue(element.baseUrl, turnOffEndpoint);
+				await postData(element.baseUrl, turnOffEndpoint);
 			});
 
 			const buttonContainer = document.createElement('div');
